@@ -14,12 +14,12 @@ const cotizacion = document.querySelector("#cotizacion")
 const pesos = document.querySelector("#pesos")
 const dolares = document.querySelector("#dolares")
 
-pesos.addEventListener ("change", (e)=>{
+pesos.addEventListener ("keyup", (e)=>{
     dolares.value = pesos.value / 140,58
     
 })
 
-dolares.addEventListener("change", (e) =>{
+dolares.addEventListener("keyup", (e) =>{
     
     pesos.value = dolares.value * 140,58
 })

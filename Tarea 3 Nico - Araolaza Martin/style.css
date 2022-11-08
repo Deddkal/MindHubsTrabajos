@@ -11,8 +11,21 @@
     border-radius: 25px;
 }
 
-fieldset input{
-    
+.conteiner_principal{
+    width: 100%;
+}
+
+#formulario{
+    width: 80%;
+    margin: auto;
+}
+
+fieldset>div:first-child{
+    width: 100%;
+}
+
+#formulario input,textarea{
+    width: 70%;
 }
 
 .btns{
@@ -27,4 +40,9 @@ fieldset input{
 .tareaChecked{
     text-decoration: line-through;
     color: coral;
+}
+
+.tareaNoChecked{
+    text-decoration: none;
+    color: black;
 }
