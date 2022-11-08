@@ -1,0 +1,30 @@
+.card_conteiner {
+    width: 18rem;
+    min-height: 18rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    background-color: aquamarine;
+    border-radius: 25px;
+}
+
+fieldset input{
+    
+}
+
+.btns{
+    width: 40%;
+}
+.card_titulo{
+
+    
+
+}
+
+.tareaChecked{
+    text-decoration: line-through;
+    color: coral;
+}
