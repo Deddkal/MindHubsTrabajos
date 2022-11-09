@@ -18,13 +18,7 @@ formulario.addEventListener("submit", (e)=>{
         realizada: false
     }
     idGlobal.push(nuevaTarea)
-    //else{
-    //conteiner.innerHTML=''
-    //}
-    
-    //idGlobal.forEach(element => {
-        crearTarjeta(idGlobal[globalId], conteiner)        
-    //});
+    crearTarjeta(idGlobal[globalId], conteiner)        
     globalId ++
     titulovacio.innerHTML = ""
 })
@@ -38,18 +32,14 @@ function crearTarjeta (datos, donde){
         </div>
         <p id="parraf${datos.id}">${datos.desc}</p>
         <button id="${datos.id}" class="btn btn-danger delete" onclick="deleted (${datos.id})">Delete</button>`
-        
     donde.appendChild(tarjeta)   
-    
 }
-
 function deleted (idCard){
     idGlobal = idGlobal.filter(element => element.id !== idCard)   
     conteiner.removeChild(document.getElementById(idCard).parentNode)
     globalId--;
     return globalId
 }
-
 function marcarRealizada (consId){
     let aux = idGlobal.find(element => 
     element.id == consId)
@@ -58,16 +48,7 @@ function marcarRealizada (consId){
     }else{
         aux.realizada = true
     }
-    /* let parrafo = document.getElementById('parraf'+consId)
-    if (aux.realizada){
-        parrafo.classList.add("tareaChecked")
-        parrafo.classList.remove("tareaNoChecked")
-    }else {
-        parrafo.classList.add("tareaNoChecked")
-        parrafo.classList.remove("tareaChecked")
-    } */
 };
-
 let btn = searchBar[0]
 let filter = searchBar[1]
 function filtrarRealizado (element){
@@ -84,25 +65,30 @@ function filtrarRealizado (element){
         crearTarjeta (element, conteiner) 
        });
     }
-    
 }
 searchBar.addEventListener("keyup", e =>{
     e.preventDefault()
-    if (btn.checked){
-        idGlobal = idGlobal.filter( e => e.realizada === true)
+    console.log([searchBar[1].value])
+        
+    let listaFiltrada = [] 
+    listaFiltrada = (idGlobal.filter( evento => evento.nombre.includes(searchBar[1].value) || evento.desc.includes(searchBar[1].value)))
+    
+    if (searchBar[1].value == ''){
+        conteiner.innerHTML = ""
+        filtrarRealizado(idGlobal)       
+    }else{
+        conteiner.innerHTML = ""
+        listaFiltrada = idGlobal.filter( evento => evento.nombre.includes(searchBar[1].value) || evento.desc.includes(searchBar[1].value))
+        console.log(idGlobal)
+        filtrarRealizado (listaFiltrada)
     }
-    idGlobal = idGlobal.filter( e => {e.nombre.contains(filter.value)})
 })
-
 conteiner.addEventListener("change", (e) =>{
     checkCard(idGlobal, e.target)
-        
     })
-
 function checkCard (dato, target){
 let parrafo = target.parentNode.parentNode.childNodes[2]
 let info = target.parentNode.parentNode.childNodes[0].childNodes[1].checked
-
     if (info == true){
         console.log(parrafo)
         parrafo.classList.add("tareaChecked")
