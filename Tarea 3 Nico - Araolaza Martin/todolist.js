@@ -71,14 +71,14 @@ searchBar.addEventListener("keyup", e =>{
     console.log([searchBar[1].value])
         
     let listaFiltrada = [] 
-    listaFiltrada = (idGlobal.filter( evento => evento.nombre.includes(searchBar[1].value) || evento.desc.includes(searchBar[1].value)))
+    //listaFiltrada = (idGlobal.filter( evento => evento.nombre.includes(searchBar[1].value) || evento.desc.includes(searchBar[1].value)))
     
     if (searchBar[1].value == ''){
         conteiner.innerHTML = ""
         filtrarRealizado(idGlobal)       
     }else{
         conteiner.innerHTML = ""
-        listaFiltrada = idGlobal.filter( evento => evento.nombre.includes(searchBar[1].value) || evento.desc.includes(searchBar[1].value))
+        listaFiltrada = idGlobal.filter( evento =>  evento.nombre.toLowerCase().includes(searchBar[1].value.toLowerCase()) || evento.desc.toLowerCase().includes(searchBar[1].value.toLowerCase()))
         console.log(idGlobal)
         filtrarRealizado (listaFiltrada)
     }
