@@ -55,7 +55,6 @@ function marcarRealizada (consId){
     element.id == consId)
     if (aux.realizada === true){
         aux.realizada = false
-        console.log(aux)
     }else{
         aux.realizada = true
     }
@@ -97,18 +96,21 @@ searchBar.addEventListener("keyup", e =>{
 
 conteiner.addEventListener("change", (e) =>{
     checkCard(idGlobal, e.target)
-    console.log("hola")    
+        
     })
 
 function checkCard (dato, target){
 let parrafo = target.parentNode.parentNode.childNodes[2]
-console.log([target.parentNode.parentNode.childNodes[2].className])
+let info = target.parentNode.parentNode.childNodes[0].childNodes[1].checked
 
-    if (dato.realizada == true){
-        return parrafo.classList.add("TareaChecked")
+    if (info == true){
+        console.log(parrafo)
+        parrafo.classList.add("tareaChecked")
+        parrafo.classList.remove("tareaNoChecked")
         console.log("hola")
     }else {
-        return parrafo.classList.add = "TareaNoChecked"
+        parrafo.classList.add ("tareaNoChecked")
+        parrafo.classList.remove("tareaChecked")
         
     }
 }
